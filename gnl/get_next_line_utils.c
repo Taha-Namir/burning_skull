@@ -50,7 +50,7 @@ char	*ft_strjoin(char	*s1, char	*s2)
 		while (y < ft_strlen(s2))
 			p[x++] = s2[y++];
 		p[x] = 0;
-		free (s1);
+		free(s1);
 		return (p);
 	}
 	return (NULL);

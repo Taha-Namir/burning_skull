@@ -6,7 +6,7 @@
 /*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 17:55:21 by tnamir            #+#    #+#             */
-/*   Updated: 2022/01/20 18:09:59 by tnamir           ###   ########.fr       */
+/*   Updated: 2022/02/14 12:46:59 by tnamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ char	**mapmodifier(char	**map, int x, int y, int *movecount)
 	xx = 0;
 	yy = 0;
 	if (x || y)
-	{
 		mapmodifierx(map, &collectibles, &x, &y);
-	}
 	yy = 0;
 	if (!collectibles)
 	{
@@ -122,10 +120,11 @@ void	mapparsing(char	**map, t_program *program, int newx,
 	mlx_clear_window(program->mlx, program->window.reference);
 	if (map[newy][newx] == 'e' || map[newy][newx] == 'B')
 	{
+		mlx_destroy_window(program->mlx, program->window.reference);
 		if (map[newy][newx] == 'B')
-			printf("You lost !");
+			write(1, "You lost !", 10);
 		if (map[newy][newx] == 'e')
-			printf("You won !");
+			write(1, "You won !", 9);
 		exit(0);
 	}
 	if (map[newy][newx] != '1' && (map[newy][newx] != 'E'))
@@ -133,6 +132,9 @@ void	mapparsing(char	**map, t_program *program, int newx,
 	program->sprite_position.y = 0;
 	mapy(map, program, &program->direction);
 	movecountchar = ft_itoa(movecount);
+	write(1, movecountchar, ft_strlen(movecountchar));
+	write(1, " moves\n", 7);
 	mlx_string_put(program->mlx, program->window.reference,
 		18, 15, 0xFFFFFF, movecountchar);
+	free(movecountchar);
 }

@@ -58,6 +58,7 @@ static char	*del_till_nl(char	*text)
 		x++;
 	x++;
 	p = ft_substr(text, x, strlen(text) - x);
+	free(text);
 	return (p);
 }
 

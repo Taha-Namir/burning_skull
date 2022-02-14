@@ -6,7 +6,7 @@
 /*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:21:29 by tnamir            #+#    #+#             */
-/*   Updated: 2022/01/20 17:45:53 by tnamir           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:04:13 by tnamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <string.h>
 # include "../gnl/get_next_line.h"

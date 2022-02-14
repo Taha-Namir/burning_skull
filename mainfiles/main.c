@@ -6,7 +6,7 @@
 /*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:33:43 by tnamir            #+#    #+#             */
-/*   Updated: 2022/01/20 18:14:55 by tnamir           ###   ########.fr       */
+/*   Updated: 2022/02/14 13:56:25 by tnamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ static t_vector	windowdimensions(char *p)
 	dimensions.y = 0;
 	while (line)
 	{
+		free(line);
 		line = get_next_line(fd);
 		dimensions.y += 1;
 	}
 	close(fd);
+	free(line);
 	return (dimensions);
 }
 
-int	wallcheckerleftright(char	**map)
+static int	wallcheckerleftright(char	**map)
 {
 	int	x;
 	int	y;
@@ -50,7 +52,7 @@ int	wallcheckerleftright(char	**map)
 	return (1);
 }
 
-int	wallcheckerupdown(char	**map)
+static int	wallcheckerupdown(char	**map)
 {
 	int	x;
 	int	y;
@@ -87,20 +89,21 @@ int	main(int argc, char **argv)
 		program.map = ft_split(mapreader(argv[1]), '\n');
 		if (!program.map)
 		{
-			printf("Error : %s", strerror(22));
-			return (0);
+			write(1, "Error : invalid map", 19);
+			exit(0);
 		}
 		if (!wallcheckerupdown(program.map))
 		{
-			printf("Error : %s", strerror(22));
-			return (0);
+			write(1, "Error : invalid map", 19);
+			exit(0);
 		}
 		program.mlx = mlx_init();
 		windim = windowdimensions(argv[1]);
 		program.window = window(program.mlx, windim.x * 50,
-				windim.y * 50, "Hello world!");
+				windim.y * 50, "BurningSkull!");
 		mapparsing(program.map, &program, 0, 0);
 		mlx_key_hook(program.window.reference, *keypress, &program);
+		mlx_loop_hook(program.mlx, *anim, &program);
 		mlx_loop(program.mlx);
 	}
 	return (0);

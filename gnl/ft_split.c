@@ -6,7 +6,7 @@
 /*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:40:15 by tnamir            #+#    #+#             */
-/*   Updated: 2022/01/20 19:30:07 by tnamir           ###   ########.fr       */
+/*   Updated: 2022/02/14 12:33:42 by tnamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	**allocation(char *s, char c)
 	px = 0;
 	x = 0;
 	y = 0;
-	p = (char **)malloc(charsearch(s, c) * sizeof(char *) + 1);
+	p = malloc(charsearch(s, c) * sizeof(char *) + 1);
 	if (!p)
 		return (0);
 	while (px < charsearch(s, c))
@@ -78,5 +78,6 @@ char	**ft_split(char *s, char c)
 	if (!s)
 		return (NULL);
 	p = allocation(s, c);
+	free(s);
 	return (p);
 }
