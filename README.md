@@ -8,3 +8,5 @@ to run the game, use make to get the executable file, then,
     $./so_long "./sprites/map2.ber"
   
   so_long is the name of the executable and the second argument is the map.
+
+For more information about the minilibx library : https://harm-smits.github.io/42docs/libs/minilibx
