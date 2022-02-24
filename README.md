@@ -1,5 +1,5 @@
-# burning_skull
-a simple game developed with the minilibx library !
+# so_long
+a simple game developed with the minilibx library made by the 42 network devs!
 
 to run the game, use make to get the executable file, then,
   run it with two arguments (first for the file and the second for the map)
