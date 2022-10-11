@@ -6,7 +6,7 @@
 /*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:33:43 by tnamir            #+#    #+#             */
-/*   Updated: 2022/02/14 13:56:25 by tnamir           ###   ########.fr       */
+/*   Updated: 2022/10/11 20:55:52 by tnamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main(int argc, char **argv)
 				windim.y * 50, "BurningSkull!");
 		mapparsing(program.map, &program, 0, 0);
 		mlx_key_hook(program.window.reference, *keypress, &program);
-		mlx_loop_hook(program.mlx, *anim, &program);
+		// mlx_loop_hook(program.mlx, *anim, &program);
 		mlx_loop(program.mlx);
 	}
 	return (0);
