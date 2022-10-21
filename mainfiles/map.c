@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	mapmodifierx(char	**map, int	*collectibles, int *x, int *y)
 {
@@ -41,12 +41,10 @@ void	mapmodifierx(char	**map, int	*collectibles, int *x, int *y)
 
 char	**mapmodifier(char	**map, int x, int y, int *movecount)
 {
-	int			xx;
 	int			yy;
 	int			collectibles;
 
 	collectibles = 0;
-	xx = 0;
 	yy = 0;
 	if (x || y)
 		mapmodifierx(map, &collectibles, &x, &y);
@@ -104,10 +102,10 @@ void	mapy(char	**map, t_program *program, char	*direction)
 				program->character.pos.y = y;
 			}
 			x++;
-			program->sprite_position.x += 50;
+			program->sprite_position.x += TILE_SIZE;
 		}
 		y++;
-		program->sprite_position.y += 50;
+		program->sprite_position.y += TILE_SIZE;
 	}
 }
 

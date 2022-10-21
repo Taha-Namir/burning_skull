@@ -12,22 +12,24 @@
 
 NAME = so_long
 
-HEADER = ./mainfiles/so_long.h
+HEADER = so_long.h
 
-FCT = ./mainfiles/map.c ./mainfiles/mapreader.c ./mainfiles/image.c ./mainfiles/window.c ./mainfiles/main.c ./mainfiles/hooks.c ./mainfiles/putimage.c ./gnl/get_next_line.c ./gnl/get_next_line_utils.c ./gnl/ft_split.c ./gnl/indexof.c ./gnl/ft_itoa.c
+SRC = ./mainfiles/map.c ./mainfiles/mapreader.c ./mainfiles/image.c ./mainfiles/window.c ./mainfiles/main.c ./mainfiles/hooks.c ./mainfiles/putimage.c ./gnl/get_next_line.c ./gnl/get_next_line_utils.c ./gnl/ft_split.c ./gnl/indexof.c ./gnl/ft_itoa.c
 
-OBJ = map.o mapreader.o image.o window.o main.o hooks.o putimage.o get_next_line.o get_next_line_utils.o ft_split.o indexof.o ft_itoa.o
+all : $(NAME) execute
 
-all : $(NAME)
+$(NAME) : mlx $(SRC) $(HEADER)
+	@cc $(SRC) -Ofast -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -Wall -Wextra -Werror -o $(NAME)
 
-$(NAME) : $(OBJ) $(FCT) $(HEADER)
-	@cc $(FCT) -lmlx -framework OpenGL -framework AppKit -Wall -Wextra -Werror -o $(NAME)
+mlx :
+	$(MAKE) -C ./mlx_linux
 
-$(OBJ) : $(FCT) $(HEADER)
-	@cc -Wall -Wextra -Werror -c $(FCT)
+execute :
+	@./so_long sprites/map2.ber
 
 clean : 
-	@rm -rf $(OBJ)
+	@rm -rf $(NAME)
+	$(MAKE) clean -C ./mlx_linux
 
 fclean : clean
 	@rm -rf $(NAME)

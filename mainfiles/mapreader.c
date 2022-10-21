@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int	lenghtchecker(char	*line, int lenght)
 {
@@ -67,6 +67,7 @@ char	*mapreader(char *path)
 	if (!line)
 		return (0);
 	lenght = ft_strlen(line);
+	text = NULL;
 	while (line)
 	{
 		if (!lenghtchecker(line, lenght))

@@ -44,11 +44,9 @@ static char	*cpy_till_nl(char	*text)
 static char	*del_till_nl(char	*text)
 {
 	int		x;
-	int		y;
 	char	*p;
 
 	x = 0;
-	y = 0;
 	if (text[0] == '\0')
 	{
 		free(text);

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnamir <tnamir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 13:36:32 by tnamir            #+#    #+#             */
-/*   Updated: 2022/01/19 14:38:07 by tnamir           ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "mlx_int.h"
 
-t_image	sprite(void *mlx, char *path)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	t_image	img;
-
-	img.reference = mlx_xpm_file_to_image(mlx, path, &img.size.x, &img.size.y);
-	return (img);
+	XCloseDisplay(xvar->display);
 }

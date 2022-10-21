@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 #include <errno.h>
 
 static t_vector	windowdimensions(char *p)
@@ -99,11 +99,11 @@ int	main(int argc, char **argv)
 		}
 		program.mlx = mlx_init();
 		windim = windowdimensions(argv[1]);
-		program.window = window(program.mlx, windim.x * 50,
-				windim.y * 50, "BurningSkull!");
+		program.window = window(program.mlx, windim.x * TILE_SIZE,
+				windim.y * TILE_SIZE, "BurningSkull!");
 		mapparsing(program.map, &program, 0, 0);
 		mlx_key_hook(program.window.reference, *keypress, &program);
-		// mlx_loop_hook(program.mlx, *anim, &program);
+		// mlx_loop_hook(program.mlx, *keypress, &program);
 		mlx_loop(program.mlx);
 	}
 	return (0);
