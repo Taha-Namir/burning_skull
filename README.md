@@ -1,12 +1,9 @@
 # so_long
-a simple game developed with the minilibx library made by the 42 network devs!
+a basic 2D game developed with the minilibx library made by the 42 network devs!
 
-to run the game, use make to get the executable file, then,
-  run it with two arguments (first for the file and the second for the map)
- 
- EXEMPLE :
-    $./so_long "./sprites/map2.ber"
-  
-  so_long is the name of the executable and the second argument is the map.
+this project is an introduction to the world of graphics
+
+to run the game : $> make
+
 
 For more information about the minilibx library : https://harm-smits.github.io/42docs/libs/minilibx
